@@ -3,8 +3,8 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Event } from '../models/event.model';
 
-const baseUrl = 'http://localhost:8080/api/events';
-//const baseUrl = 'https://back-nodejs-mongodb.herokuapp.com/api/events';
+//const baseUrl = 'http://localhost:8080/api/events';
+const baseUrl = 'https://back-nodejs-mongodb.herokuapp.com/api/events';
 
 @Injectable({
   providedIn: 'root'

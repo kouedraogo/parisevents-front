@@ -1,1 +1,47 @@
-<p>board-user works!</p>
+<div class="container-fluid">
+    <div class="row">
+    <div class="col-md-8">
+      <div class="input-group mb-3">
+        <input
+          type="text"
+          class="form-control"
+          placeholder="Search by title"
+          [(ngModel)]="title"
+        />
+        <div class="input-group-append">
+          <button
+            class="btn btn-outline-secondary"
+            type="button"
+            (click)="searchTitle()"
+          >
+            Search
+          </button>
+        </div>
+      </div>
+    </div>
+    
+
+    <div class="col-md-6">
+        <h4>Liste des evenements sur Paris</h4>
+        <div class="card my-highlight col-3 col-xl-4 col-md-6 col-12 "
+        *ngFor="let event of events; let i = index"
+        [class.active]="i == currentIndex"
+        (click)="setActiveEvent(event, i)"
+        >
+         <div class="card" style="width:300px">
+         <img class="card-img-top" src="{{event.cover_url}}" alt="{{event.cover_alt}}">
+            <div class="card-body">
+                <h1 class="card-title">{{event.title}}</h1>
+                <!--<a href="#" class="btn btn-primary">Détails</a>!-->
+            </div>
+         </div>
+        </div>
+
+    <div class="col-md-6">
+      <app-events-details
+        [viewMode]="true"
+        [currentTutorial]="currentEvent"
+      ></app-events-details>
+    </div>
+    </div>
+</div>

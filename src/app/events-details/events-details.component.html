@@ -1,1 +1,54 @@
-<p>events-details works!</p>
+<div *ngIf="viewMode; else editable">
+    <div *ngIf="currentEvent.id">
+      <h4>Evenement</h4>
+      <div>
+        <label><strong>Titre: </strong></label> {{ currentEvent.title }} - {{ currentEvent.title_event }}
+      </div>
+      <div>
+        <label><strong>Date de mise à jour: </strong></label> {{ currentEvent.updated_at }}
+      </div>
+      <div>
+        <label><strong>Chapeau: </strong></label> {{ currentEvent.lead_text }}
+      </div>
+      <div>
+        <label><strong>Description: </strong></label> {{ currentEvent.description }}
+      </div>
+      <div>
+        <label><strong>Nom du lieu: </strong></label> {{ currentEvent.address_name }} {{ currentEvent.address_text }}
+        <label><strong>Adresse: </strong></label> {{ currentEvent.address_street }}, {{ currentEvent.address_city }} {{ currentEvent.address_zipcode }} 
+      </div>
+      <div>
+        <label><strong>Se deroule du: </strong></label> {{ currentEvent.date_start }}
+        <label><strong> au: </strong></label> {{ currentEvent.date_end }}, {{ currentEvent.date_description }}
+      </div>
+      <div>
+        <label><strong>Type de prix: </strong></label> {{ currentEvent.price_type }}
+        <label><strong>Détails du prix: </strong></label> {{ currentEvent.price_detail }}
+      </div>
+
+    access_link? : string;
+	access_link_text? : string;
+	access_type? : string;
+	address_url? : string;
+	address_url_text? : string;
+	blind? : Number;
+	contact_facebook? : string;
+	contact_mail? : string;
+	contact_phone? : string;
+	contact_twitter? : string;
+	contact_url? : string;
+	cover_credit? : string;
+	deaf? : Number;
+	lat_lon? : [];
+	occurrences? : string;
+	pmr? : Number;
+	programs? : string;
+	tags? : string;
+	transport? : string;
+      
+    </div>
+    <div *ngIf="!currentEvent">
+      <br />
+      <p>Please click on a Event...</p>
+    </div>
+  </div>
