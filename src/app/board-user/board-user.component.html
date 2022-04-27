@@ -1,6 +1,5 @@
-<div class="container-fluid">
+<div class="list row">
     <div class="row">
-    <div class="col-md-8">
       <div class="input-group mb-3">
         <input
           type="text"
@@ -19,29 +18,51 @@
         </div>
       </div>
     </div>
-    
 
-    <div class="col-md-6">
+    <div class="row">
         <h4>Liste des evenements sur Paris</h4>
-        <div class="card my-highlight col-3 col-xl-4 col-md-6 col-12 "
+        <div class="card my-highlight  col-xl-4 col-md-6 col-12 "
         *ngFor="let event of events; let i = index"
-        [class.active]="i == currentIndex"
+        [class.active]="i == currentIndex" 
         (click)="setActiveEvent(event, i)"
-        >
-         <div class="card" style="width:300px">
-         <img class="card-img-top" src="{{event.cover_url}}" alt="{{event.cover_alt}}">
-            <div class="card-body">
-                <h1 class="card-title">{{event.title}}</h1>
-                <!--<a href="#" class="btn btn-primary">Détails</a>!-->
-            </div>
-         </div>
-        </div>
+        style="width: 18rem;height: 16rem;"
 
-    <div class="col-md-6">
-      <app-events-details
+        >
+         
+         <img class="card-img-top" src="{{event.cover_url}}" alt="{{event.cover_alt}}" style="width:16rem; max-height: 10rem; object-fit: cover;">
+            <div class="card-body">
+                <p class="card-title" >{{event.title}} </p>
+                <!-- <a href="#" class="btn btn-primary">Détails</a> -->
+                <!-- Button trigger modal -->
+                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Details</button>
+                 
+                <!-- Scrollable modal -->
+                <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-scrollable">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="staticBackdropLabel">Détails de l'Evenement</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                        <div class="modal-body">
+                            <p>I will not close if you click outside me. Don't even try to press escape key.</p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- <div class="col-md-6">
+        <app-events-details
         [viewMode]="true"
-        [currentTutorial]="currentEvent"
+        [currentEvent]="currentEvent"
       ></app-events-details>
     </div>
-    </div>
+    -->
 </div>

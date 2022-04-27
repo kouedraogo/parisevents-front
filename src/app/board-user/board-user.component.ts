@@ -36,7 +36,7 @@ export class BoardUserComponent implements OnInit {
     this.currentIndex = -1;
   }
 
-  setActiveEvents(event: Event, index: number): void {
+  setActiveEvent(event: Event, index: number): void {
     this.currentEvent = event;
     this.currentIndex = index;
   }
