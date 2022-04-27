@@ -25,36 +25,61 @@
         *ngFor="let event of events; let i = index"
         [class.active]="i == currentIndex" 
         (click)="setActiveEvent(event, i)"
-        style="width: 18rem;height: 16rem;"
-
+        style="width: 18rem;height: 18rem;"
         >
          
          <img class="card-img-top" src="{{event.cover_url}}" alt="{{event.cover_alt}}" style="width:16rem; max-height: 10rem; object-fit: cover;">
             <div class="card-body">
                 <p class="card-title" >{{event.title}} </p>
-                <!-- <a href="#" class="btn btn-primary">Détails</a> -->
-                <!-- Button trigger modal -->
-                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Details</button>
-                 
-                <!-- Scrollable modal -->
+                   <!-- Trigger the modal with a link -->
+                    <a href="#" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Details</a>
+
+                <!-- Modal -->
                 <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-                    <div class="modal-dialog modal-dialog-scrollable">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title" id="staticBackdropLabel">Détails de l'Evenement</h5>
-                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                            </div>
-                        <div class="modal-body">
-                            <p>I will not close if you click outside me. Don't even try to press escape key.</p>
+                <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg"> <!-- different sizes : modal-sm , medium by default , modal-lg -->
+
+                    <!-- Modal content-->
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h4 class="modal-title">Details de l'evenement</h4>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                        </div>
-                        </div>
+                    <div class="modal-body">
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item">Titre:  {{ currentEvent.title }} - {{ currentEvent.title_event }}</li>
+                            <li class="list-group-item"> Date de mise à jour:  {{ currentEvent.updated_at }}</li>
+                            <li class="list-group-item">Mots clés: {{ currentEvent.tags }}</li>
+                            <li class="list-group-item">Chapeau: {{ currentEvent.lead_text }}</li>
+                            <li class="list-group-item">Description: {{ currentEvent.description }}</li>
+                            <li class="list-group-item">Lieu: {{ currentEvent.address_name }} {{ currentEvent.address_text }},
+                                {{ currentEvent.address_street }}, {{ currentEvent.address_zipcode }} {{ currentEvent.address_city }}
+                            </li>
+                            <li class="list-group-item">{{ currentEvent.lead_text }}</li>
+                            <li class="list-group-item">{{ currentEvent.date_description }}</li>
+                            <li class="list-group-item">{{ currentEvent.occurrences }}</li>
+                            <li class="list-group-item">{{ currentEvent.price_type }}, {{ currentEvent.price_detail }}</li>
+                            <li class="list-group-item">Accès PMR: {{ currentEvent.pmr }}</li>
+                            <li class="list-group-item">Accès mal voyant: {{ currentEvent.blind }}</li>
+                            <li class="list-group-item">Accès mal entendant: {{ currentEvent.deaf }}</li>
+                            <li class="list-group-item">Transport en commun: {{ currentEvent.transport }}</li>
+                            <li class="list-group-item">Contact mail: {{ currentEvent.contact_mail}}</li>
+                            <li class="list-group-item">Telephone: {{ currentEvent.contact_phone}}</li>
+                            <li class="list-group-item">Contact Facebook: {{ currentEvent.contact_facebook}}</li>
+                            <li class="list-group-item">Contact Twitter: {{ currentEvent.contact_twitter}}</li>
+                            <li class="list-group-item">Site web: {{ currentEvent.contact_url}}</li>
+                            <li class="list-group-item">Réservation: {{ currentEvent.access_type }}</li>
+                            <li class="list-group-item">{{ currentEvent.access_link_text }}</li>
+                            <li class="list-group-item"><a href="{{ currentEvent.access_link }}" class="btn btn-primary">Pour reserver</a></li>
+                          </ul>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    </div>
                     </div>
                 </div>
+                </div>
             </div>
-        </div>
+            </div>
     </div>
 
 
