@@ -33,54 +33,56 @@
                 <p class="card-title" >{{event.title}} </p>
                    <!-- Trigger the modal with a link -->
                     <a href="#" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Details</a>
+            </div>
+        
+        </div> <!-- end of loop for events -->
 
-                <!-- Modal -->
-                <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-                <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg"> <!-- different sizes : modal-sm , medium by default , modal-lg -->
-
-                    <!-- Modal content-->
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h4 class="modal-title">Details de l'evenement</h4>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                        </div>
+         <!-- Modal -->
+            <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-sm"> <!-- different sizes : modal-sm , medium by default , modal-lg -->          
+                </div>
+    
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title">Details de l'evenement</h4>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
                     <div class="modal-body">
-                        <ul class="list-group list-group-flush">
-                            <li class="list-group-item">Titre:  {{ currentEvent.title }} - {{ currentEvent.title_event }}</li>
-                            <li class="list-group-item"> Date de mise à jour:  {{ currentEvent.updated_at }}</li>
-                            <li class="list-group-item">Mots clés: {{ currentEvent.tags }}</li>
-                            <li class="list-group-item">Chapeau: {{ currentEvent.lead_text }}</li>
-                            <li class="list-group-item">Description: {{ currentEvent.description }}</li>
-                            <li class="list-group-item">Lieu: {{ currentEvent.address_name }} {{ currentEvent.address_text }},
-                                {{ currentEvent.address_street }}, {{ currentEvent.address_zipcode }} {{ currentEvent.address_city }}
-                            </li>
-                            <li class="list-group-item">{{ currentEvent.lead_text }}</li>
-                            <li class="list-group-item">{{ currentEvent.date_description }}</li>
-                            <li class="list-group-item">{{ currentEvent.occurrences }}</li>
-                            <li class="list-group-item">{{ currentEvent.price_type }}, {{ currentEvent.price_detail }}</li>
-                            <li class="list-group-item">Accès PMR: {{ currentEvent.pmr }}</li>
-                            <li class="list-group-item">Accès mal voyant: {{ currentEvent.blind }}</li>
-                            <li class="list-group-item">Accès mal entendant: {{ currentEvent.deaf }}</li>
-                            <li class="list-group-item">Transport en commun: {{ currentEvent.transport }}</li>
-                            <li class="list-group-item">Contact mail: {{ currentEvent.contact_mail}}</li>
-                            <li class="list-group-item">Telephone: {{ currentEvent.contact_phone}}</li>
-                            <li class="list-group-item">Contact Facebook: {{ currentEvent.contact_facebook}}</li>
-                            <li class="list-group-item">Contact Twitter: {{ currentEvent.contact_twitter}}</li>
-                            <li class="list-group-item">Site web: {{ currentEvent.contact_url}}</li>
-                            <li class="list-group-item">Réservation: {{ currentEvent.access_type }}</li>
-                            <li class="list-group-item">{{ currentEvent.access_link_text }}</li>
-                            <li class="list-group-item"><a href="{{ currentEvent.access_link }}" class="btn btn-primary">Pour reserver</a></li>
-                          </ul>
+                            <div *ngIf="currentEvent.title">{{ currentEvent.title }} - {{ currentEvent.title_event }} </div>
+                            <div *ngIf="currentEvent.updated_at"> Date de mise à jour:  {{ currentEvent.updated_at }} </div>
+                            <div *ngIf="currentEvent.tags">Mots clés: {{ currentEvent.tags }} </div><br>
+                            <div *ngIf="currentEvent.lead_text">{{ currentEvent.lead_text }} </div><br>
+                            <div *ngIf="currentEvent.description">{{ currentEvent.description }} </div><br>
+                            <div *ngIf="currentEvent.address_name"><i class="fa-solid fa-location-dot"></i> {{ currentEvent.address_name }} {{ currentEvent.address_text }},
+                                {{ currentEvent.address_street }}, {{ currentEvent.address_zipcode }} {{ currentEvent.address_city }} 
+                            </div><br>
+                            <div *ngIf="currentEvent.date_description">{{ currentEvent.date_description }} </div><br>
+                            <div class="input-group mb-3">
+                                <div *ngIf="currentEvent.pmr != 0"><i class="fa-solid fa-wheelchair"></i>  &nbsp;</div>
+                                <div *ngIf="currentEvent.blind != 0"><i class="fa-solid fa-person-walking-with-cane"></i> &nbsp;</div>
+                                <div *ngIf="currentEvent.deaf != 0"><i class="fa-solid fa-ear-deaf"></i></div>
+                            </div>
+                            <div *ngIf="currentEvent.transport"><i class="fa-solid fa-train-subway"></i> {{ currentEvent.transport }} </div><br>
+                            <div class="input-group mb-3">
+                                <div *ngIf="currentEvent.contact_mail"><i class="fa-solid fa-at"></i> {{ currentEvent.contact_mail}}  &nbsp; &nbsp;</div>
+                                <div *ngIf="currentEvent.contact_phone"><i class="fa-solid fa-phone"></i> {{ currentEvent.contact_phone}}  &nbsp; &nbsp;</div>
+                                <div *ngIf="currentEvent.contact_facebook"><a href="{{ currentEvent.contact_facebook}} " target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-facebook"></i></a>  &nbsp; &nbsp;</div>
+                                <div *ngIf="currentEvent.contact_twitter"><a href="{{ currentEvent.contact_twitter}} " target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-twitter"></i></a>  &nbsp; &nbsp;</div>
+                                <div *ngIf="currentEvent.contact_url"><a href="{{ currentEvent.contact_url}} " target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-browser"></i></a></div>
+                            </div>
+                            <div *ngIf="currentEvent.access_type">Réservation: {{ currentEvent.access_type }} </div>
+                            <div *ngIf="currentEvent.access_link_text">{{ currentEvent.access_link_text }} </div>
+                            <div *ngIf="currentEvent.price_type">{{ currentEvent.price_type }}, {{ currentEvent.price_detail }} </div>
+                            <div *ngIf="currentEvent.access_link"><a href="{{ currentEvent.access_link }} " target="_blank" rel="noopener noreferrer" class="btn btn-primary">Pour reserver</a></div>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                     </div>
-                    </div>
                 </div>
-                </div>
-            </div>
-            </div>
-    </div>
+            </div> <!-- end of Modal -->
+        
+    </div> <!-- end of row for events -->
 
 
     <!-- <div class="col-md-6">
