@@ -11,9 +11,26 @@
       <li class="nav-item" *ngIf="showModeratorBoard">
         <a href="/mod" class="nav-link" routerLink="mod">Moderator Board</a>
       </li>
-      <li class="nav-item">
-        <a href="/user" class="nav-link" *ngIf="isLoggedIn" routerLink="user">User</a>
-      </li>
+      
+      <li class="nav-item dropdown" *ngIf="isLoggedIn" >
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          User Board
+        </a>
+        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <li class="dropdown-item">
+            <a href="/user" class="nav-link" *ngIf="isLoggedIn" routerLink="user">Evenements</a>
+          </li>
+          <li class="dropdown-item">
+            <a href="/localisations" class="nav-link" *ngIf="isLoggedIn" routerLink="localisations">Localisations</a>
+          </li>
+          <li class="dropdown-item">
+            <a href="/accessibilite" class="nav-link" *ngIf="isLoggedIn" routerLink="accessibilite">Accessibilité</a>
+          </li>
+          <li class="dropdown-item">
+            <a href="/analyses" class="nav-link" *ngIf="isLoggedIn" routerLink="analyses">Analyses</a>
+          </li>
+        </ul>
+      </li>    
     </ul>
 
     <ul class="navbar-nav ms-auto" *ngIf="!isLoggedIn">
