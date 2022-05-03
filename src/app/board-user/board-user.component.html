@@ -51,19 +51,19 @@
                     <div class="modal-body">
                             <div *ngIf="currentEvent.title">{{ currentEvent.title }} - {{ currentEvent.title_event }} </div>
                             <div *ngIf="currentEvent.updated_at"> Date de mise à jour:  {{ currentEvent.updated_at }} </div>
-                            <div *ngIf="currentEvent.tags">Mots clés: {{ currentEvent.tags }} </div><br>
-                            <div *ngIf="currentEvent.lead_text">{{ currentEvent.lead_text }} </div><br>
-                            <div *ngIf="currentEvent.description">{{ currentEvent.description }} </div><br>
+                            <div *ngIf="currentEvent.tags">Mots clés: {{ currentEvent.tags }} </div>
+                            <div *ngIf="currentEvent.lead_text">{{ currentEvent.lead_text }} </div>
+                            <div *ngIf="currentEvent.description">{{ currentEvent.description }} </div>
                             <div *ngIf="currentEvent.address_name"><i class="fa-solid fa-location-dot"></i> {{ currentEvent.address_name }} {{ currentEvent.address_text }},
                                 {{ currentEvent.address_street }}, {{ currentEvent.address_zipcode }} {{ currentEvent.address_city }} 
-                            </div><br>
-                            <div *ngIf="currentEvent.date_description">{{ currentEvent.date_description }} </div><br>
+                            </div>
+                            <div *ngIf="currentEvent.date_description">{{ currentEvent.date_description }} </div>
                             <div class="input-group mb-3">
                                 <div *ngIf="currentEvent.pmr != 0"><i class="fa-solid fa-wheelchair"></i>  &nbsp;</div>
                                 <div *ngIf="currentEvent.blind != 0"><i class="fa-solid fa-person-walking-with-cane"></i> &nbsp;</div>
                                 <div *ngIf="currentEvent.deaf != 0"><i class="fa-solid fa-ear-deaf"></i></div>
                             </div>
-                            <div *ngIf="currentEvent.transport"><i class="fa-solid fa-train-subway"></i> {{ currentEvent.transport }} </div><br>
+                            <div *ngIf="currentEvent.transport"><i class="fa-solid fa-train-subway"></i> {{ currentEvent.transport }} </div>
                             <div class="input-group mb-3">
                                 <div *ngIf="currentEvent.contact_mail"><i class="fa-solid fa-at"></i> {{ currentEvent.contact_mail}}  &nbsp; &nbsp;</div>
                                 <div *ngIf="currentEvent.contact_phone"><i class="fa-solid fa-phone"></i> {{ currentEvent.contact_phone}}  &nbsp; &nbsp;</div>
