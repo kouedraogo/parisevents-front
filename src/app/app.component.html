@@ -1,7 +1,7 @@
 <div id="app">
-  <nav class="navbar navbar-expand navbar-dark bg-dark">
+  <nav class="navbar navbar-expand navbar-light" style="background-color: #d0eafc;">
     <a href="#" class="navbar-brand">Paris Events</a>
-    <ul class="navbar-nav mr-auto" routerLinkActive="active">
+    <ul class="navbar-nav me-auto" routerLinkActive="active">
       <li class="nav-item">
         <a href="/home" class="nav-link" routerLink="home">Home </a>
       </li>
@@ -11,26 +11,43 @@
       <li class="nav-item" *ngIf="showModeratorBoard">
         <a href="/mod" class="nav-link" routerLink="mod">Moderator Board</a>
       </li>
+      
+      <li class="nav-item dropdown" *ngIf="isLoggedIn" >
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          User Board
+        </a>
+        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <li class="dropdown-item">
+            <a href="/user" class="nav-link" *ngIf="isLoggedIn" routerLink="user">Evenements</a>
+          </li>
+          <li class="dropdown-item">
+            <a href="/localisations" class="nav-link" *ngIf="isLoggedIn" routerLink="localisations">Localisations</a>
+          </li>
+          <li class="dropdown-item">
+            <a href="/accessibilite" class="nav-link" *ngIf="isLoggedIn" routerLink="accessibilite">Accessibilité</a>
+          </li>
+          <li class="dropdown-item">
+            <a href="/analyses" class="nav-link" *ngIf="isLoggedIn" routerLink="analyses">Analyses</a>
+          </li>
+        </ul>
+      </li>    
+    </ul>
+
+    <ul class="navbar-nav ms-auto" *ngIf="!isLoggedIn">
       <li class="nav-item">
-        <a href="/user" class="nav-link" *ngIf="isLoggedIn" routerLink="user">User</a>
+        <a href="/register" class="nav-link" routerLink="register">S'inscrire</a>
+      </li>
+      <li class="nav-item">
+        <a href="/login" class="nav-link" routerLink="login">Se connecter</a>
       </li>
     </ul>
 
-    <ul class="navbar-nav ml-auto" *ngIf="!isLoggedIn">
-      <li class="nav-item">
-        <a href="/register" class="nav-link" routerLink="register">Sign Up</a>
-      </li>
-      <li class="nav-item">
-        <a href="/login" class="nav-link" routerLink="login">Login</a>
-      </li>
-    </ul>
-
-    <ul class="navbar-nav ml-auto" *ngIf="isLoggedIn">
+    <ul class="navbar-nav ms-auto" *ngIf="isLoggedIn">
       <li class="nav-item">
         <a href="/profile" class="nav-link" routerLink="profile">{{ username }}</a>
       </li>
       <li class="nav-item">
-        <a href class="nav-link" (click)="logout()">LogOut</a>
+        <a href class="nav-link" (click)="logout()">Se deconnecter</a>
       </li>
     </ul>
   </nav>
@@ -38,4 +55,5 @@
   <div class="container">
     <router-outlet></router-outlet>
   </div>
+  <app-footer class="mt-auto"></app-footer>
 </div>
