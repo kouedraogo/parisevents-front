@@ -45,5 +45,7 @@
 
 .description p {
     font-size: 20px;
-    text-align:justify;
+    text-align:center;
+    position: absolute;
+    bottom: 4%;
 }
