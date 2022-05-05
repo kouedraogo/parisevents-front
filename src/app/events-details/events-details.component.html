@@ -1,0 +1,37 @@
+<div *ngIf="viewMode">
+    <div *ngIf="currentEvent._id">
+        <!--<img src="{{currentEvent.cover_url}}" alt="{{currentEvent.cover_alt}}" class="details-img-top"> -->
+        <p>{{ currentEvent.cover_credit }}</p>
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item">Titre:  {{ currentEvent.title }} - {{ currentEvent.title_event }}</li>
+            <li class="list-group-item"> Date de mise à jour:  {{ currentEvent.updated_at }}</li>
+            <li class="list-group-item">Mots clés: {{ currentEvent.tags }}</li>
+            <li class="list-group-item">Chapeau: {{ currentEvent.lead_text }}</li>
+            <li class="list-group-item">Description: {{ currentEvent.description }}</li>
+            <li class="list-group-item">Lieu: {{ currentEvent.address_name }} {{ currentEvent.address_text }},
+                {{ currentEvent.address_street }}, {{ currentEvent.address_zipcode }} {{ currentEvent.address_city }}
+            </li>
+            <li class="list-group-item">{{ currentEvent.lead_text }}</li>
+            <li class="list-group-item">{{ currentEvent.date_description }}</li>
+            <li class="list-group-item">{{ currentEvent.occurrences }}</li>
+            <li class="list-group-item">{{ currentEvent.price_type }}, {{ currentEvent.price_detail }}</li>
+            <li class="list-group-item">Accès PMR: {{ currentEvent.pmr }}</li>
+            <li class="list-group-item">Accès mal voyant: {{ currentEvent.blind }}</li>
+            <li class="list-group-item">Accès mal entendant: {{ currentEvent.deaf }}</li>
+            <li class="list-group-item">Transport en commun: {{ currentEvent.transport }}</li>
+            <li class="list-group-item">Contact mail: {{ currentEvent.contact_mail}}</li>
+            <li class="list-group-item">Telephone: {{ currentEvent.contact_phone}}</li>
+            <li class="list-group-item">Contact Facebook: {{ currentEvent.contact_facebook}}</li>
+            <li class="list-group-item">Contact Twitter: {{ currentEvent.contact_twitter}}</li>
+            <li class="list-group-item">Site web: {{ currentEvent.contact_url}}</li>
+            <li class="list-group-item">Réservation: {{ currentEvent.access_type }}</li>
+            <li class="list-group-item">{{ currentEvent.access_link_text }}</li>
+            <li class="list-group-item"><a href="{{ currentEvent.access_link }}" class="btn btn-primary">Pour reserver</a></li>
+          </ul>
+      
+    </div>
+    <div *ngIf="!currentEvent">
+      <br />
+      <p>Please click on a Event...</p>
+    </div>
+  </div>

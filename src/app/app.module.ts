@@ -13,6 +13,11 @@ import { BoardUserComponent } from './board-user/board-user.component';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { authInterceptorProviders } from './_helpers/auth.interceptor';
+import { EventsDetailsComponent } from './events-details/events-details.component';
+import { LocalisationsComponent } from './components/localisations/localisations.component';
+import { AccessibiliteComponent } from './components/accessibilite/accessibilite.component';
+import { AnalysesComponent } from './components/analyses/analyses.component';
+import { FooterComponent } from './components/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +28,12 @@ import { authInterceptorProviders } from './_helpers/auth.interceptor';
     ProfileComponent,
     BoardAdminComponent,
     BoardModeratorComponent,
-    BoardUserComponent
+    BoardUserComponent,
+    EventsDetailsComponent,
+    LocalisationsComponent,
+    AccessibiliteComponent,
+    AnalysesComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,

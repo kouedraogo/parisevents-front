@@ -1,0 +1,43 @@
+p { font-size: 10pt ;}
+
+@keyframes highlight-animation 
+{ 
+  0% { transform: scale(1); }
+ 50% { transform: scale(0.98) ; box-shadow: 0px 0px 0px 2px #000000;} 
+ 100% { transform: scale(1); }
+ }
+
+.my-highlight-anim:hover{
+	animation: highlight-animation 0.5s;
+}
+/* box-shadows :  offset-x | offset-y | blur-radius | spread-radius | color */
+.my-highlight:hover{
+	transform: scale(0.97) ; box-shadow: 0px 0px 1em 1px #000000;
+	transition: 0.5s ease;
+}
+
+.list {
+  text-align: left;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  padding-right: 0;
+  padding-left: 0;
+  padding-top: 0;
+  padding-bottom: 0;
+  margin-right: 0;
+  margin-left: 0;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.modal-dialog {
+  position: absolute;
+  top: 0;
+  right: 100px;
+  bottom: 0;
+  left: 0;
+  z-index: 10040;
+  overflow: auto;
+  overflow-y: auto;
+}
