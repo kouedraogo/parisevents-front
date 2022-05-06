@@ -83,7 +83,8 @@ export class BoardAdminComponent implements OnInit {
     .subscribe({
       next: (res) => {
         console.log(res);
-        this.router.navigate(['/admin']);
+        //this.router.navigate(['/admin']);
+        this.refreshList();
       },
       error: (e) => console.error(e)
     });

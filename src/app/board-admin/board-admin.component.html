@@ -8,8 +8,8 @@
 			<tr>
 				<th>Nom d'utilisateur</th>
 				<th>Adresse Email</th>
-			<!-- 	
-        <th>Role</th>-->
+				
+        <th>Role</th>
 				<th>Actions</th>
 			</tr>
 		</thead>
@@ -21,8 +21,9 @@
       >
 				<td>{{user.username}}</td>
 				<td>{{user.email}}</td>
-        <!-- 
-        <td>{{user.roles[0].name}}</td>-->
+        
+        <td *ngFor="let role of user.roles">
+          <p>{{role.name}}</p></td>
 				<td>
 					 <button class = "m3 btn btn-sm btn-danger" (click)="deleteUser()">Supprimer</button>
 				</td>
