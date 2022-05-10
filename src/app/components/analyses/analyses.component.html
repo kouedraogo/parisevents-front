@@ -15,4 +15,19 @@
 	    <iframe src="https://opendata.paris.fr/explore/embed/dataset/que-faire-a-paris-/analyze/?disjunctive.tags&disjunctive.address_name&disjunctive.address_zipcode&disjunctive.address_city&disjunctive.pmr&disjunctive.blind&disjunctive.deaf&disjunctive.transport&disjunctive.price_type&disjunctive.access_type&disjunctive.programs&dataChart=eyJxdWVyaWVzIjpbeyJjaGFydHMiOlt7InR5cGUiOiJjb2x1bW4iLCJmdW5jIjoiQ09VTlQiLCJ5QXhpcyI6InBtciIsInNjaWVudGlmaWNEaXNwbGF5Ijp0cnVlLCJjb2xvciI6IiMwMDMzNjYiLCJwb3NpdGlvbiI6ImNlbnRlciJ9XSwieEF4aXMiOiJhZGRyZXNzX3ppcGNvZGUiLCJtYXhwb2ludHMiOm51bGwsInRpbWVzY2FsZSI6IiIsInNvcnQiOiIiLCJjb25maWciOnsiZGF0YXNldCI6InF1ZS1mYWlyZS1hLXBhcmlzLSIsIm9wdGlvbnMiOnsiZGlzanVuY3RpdmUudGFncyI6dHJ1ZSwiZGlzanVuY3RpdmUuYWRkcmVzc19uYW1lIjp0cnVlLCJkaXNqdW5jdGl2ZS5hZGRyZXNzX3ppcGNvZGUiOnRydWUsImRpc2p1bmN0aXZlLmFkZHJlc3NfY2l0eSI6dHJ1ZSwiZGlzanVuY3RpdmUucG1yIjp0cnVlLCJkaXNqdW5jdGl2ZS5ibGluZCI6dHJ1ZSwiZGlzanVuY3RpdmUuZGVhZiI6dHJ1ZSwiZGlzanVuY3RpdmUudHJhbnNwb3J0Ijp0cnVlLCJkaXNqdW5jdGl2ZS5wcmljZV90eXBlIjp0cnVlLCJkaXNqdW5jdGl2ZS5hY2Nlc3NfdHlwZSI6dHJ1ZSwiZGlzanVuY3RpdmUucHJvZ3JhbXMiOnRydWUsImJhc2VtYXAiOiJqYXdnLmRhcmsiLCJsb2NhdGlvbiI6IjExLDQ4Ljg0OTEzLDIuMzQ2OTUifX0sInNlcmllc0JyZWFrZG93biI6IiIsInNlcmllc0JyZWFrZG93blRpbWVzY2FsZSI6IiJ9XSwiZGlzcGxheUxlZ2VuZCI6dHJ1ZSwiYWxpZ25Nb250aCI6dHJ1ZSwidGltZXNjYWxlIjoiIn0%3D&basemap=jawg.dark&location=11,48.84913,2.34695&static=false&datasetcard=false" width="800" height="600" frameborder="0"></iframe>
     </div>
 
+    <div class="row"
+            *ngFor="let scrapping of scrappings; let i = index"
+            [class.active]="i == currentIndex" 
+            (click)="setActiveScrapping(scrapping, i)"
+        >
+            <div class="col">
+                <!-- 
+                <iframe [src]="'{{scrapping.keyword_access_link}}' | safe" width="350" height="250" frameborder="0"></iframe><br>
+               -->
+               <a href="{{scrapping.keyword_access_link}}" target="_blank" rel="noopener noreferrer">Analyse selon les mots clés</a> <br>
+               <a href="{{scrapping.datestart_access_link}}" target="_blank" rel="noopener noreferrer">Analyse selon les dates de début</a><br>
+               <a href="{{scrapping.zipcode_access_link}}" target="_blank" rel="noopener noreferrer">Analyse selon le code postal</a>
+            </div>
+        </div>
+
 </div>
