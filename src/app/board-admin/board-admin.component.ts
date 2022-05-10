@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from '../_services/user.service';
+import { AuthService } from '../_services/auth.service';
+import { User } from '../models/user.model';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-board-admin',
@@ -8,8 +11,16 @@ import { UserService } from '../_services/user.service';
 })
 export class BoardAdminComponent implements OnInit {
   content?: string;
+  users?: User[];
+  currentUser: User = {};
+  currentIndex = -1;
+  message = '';
 
-  constructor(private userService: UserService) { }
+  constructor(private userService: UserService, 
+    private  authService: AuthService,
+    private route: ActivatedRoute,
+    private router: Router
+    ) { }
 
   ngOnInit(): void {
     this.userService.getAdminBoard().subscribe({
@@ -20,5 +31,75 @@ export class BoardAdminComponent implements OnInit {
         this.content = JSON.parse(err.error).message;
       }
     });
+
+    this.retrieveUsers();
+  }
+
+  retrieveUsers(): void {
+    this.authService.getAll()
+    .subscribe({
+      next: (data) => {
+        this.users = data;
+        console.log(data);
+      },
+      error: (e) => console.error(e)
+    });
+  }
+
+  refreshList(): void {
+    this.retrieveUsers();
+    this.currentUser = {};
+    this.currentIndex = -1;
+  }
+
+  setActiveUser(user: User, index: number): void {
+    this.currentUser = user;
+    this.currentIndex = index;
+  }
+
+  removeAllUsers(): void {
+    this.authService.deleteAll()
+    .subscribe({
+      next: (res) => {
+        console.log(res);
+        this.refreshList();
+      },
+      error: (e) => console.error()
+    });
+  }
+
+  getUser(id: string): void {
+    this.authService.get(id)
+    .subscribe({
+      next: (data) => {
+        this.currentUser = data;
+        console.log(data);
+      },
+      error: (e) => console.error(e)
+    });
+  }
+
+  deleteUser(): void {
+    this.authService.delete(this.currentUser.id)
+    .subscribe({
+      next: (res) => {
+        console.log(res);
+        //this.router.navigate(['/admin']);
+        this.refreshList();
+      },
+      error: (e) => console.error(e)
+    });
+  }
+
+  updateUser(): void {
+    this.message = '';
+    this.authService.update(this.currentUser.id, this.currentUser)
+      .subscribe({
+        next: (res) => {
+          console.log(res);
+          this.message = res.message ? res.message : 'This user was updated successfully!';
+        },
+        error: (e) => console.error(e)
+      });
   }
 }

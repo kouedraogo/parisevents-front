@@ -4,7 +4,7 @@
         <input
           type="text"
           class="form-control"
-          placeholder="Search by title"
+          placeholder="Entrer un titre"
           [(ngModel)]="title"
         />
         <div class="input-group-append">
@@ -13,7 +13,7 @@
             type="button"
             (click)="searchTitle()"
           >
-            Search
+            Rechercher
           </button>
         </div>
       </div>
@@ -32,7 +32,7 @@
             <div class="card-body">
                 <p class="card-title" >{{event.title}} </p>
                    <!-- Trigger the modal with a link -->
-                    <a href="#" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Details</a>
+                    <a href="#" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Détails</a>
             </div>
         
         </div> <!-- end of loop for events -->
@@ -45,33 +45,36 @@
                 <!-- Modal content-->
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h4 class="modal-title">Details de l'evenement</h4>
+                        <h4 class="modal-title"><strong>Details de l'evenement</strong></h4>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
-                            <div *ngIf="currentEvent.title">{{ currentEvent.title }} - {{ currentEvent.title_event }} </div>
-                            <div *ngIf="currentEvent.updated_at"> Date de mise à jour:  {{ currentEvent.updated_at }} </div>
-                            <div *ngIf="currentEvent.tags">Mots clés: {{ currentEvent.tags }} </div>
-                            <div *ngIf="currentEvent.lead_text">{{ currentEvent.lead_text }} </div>
-                            <div *ngIf="currentEvent.description">{{ currentEvent.description }} </div>
-                            <div *ngIf="currentEvent.address_name"><i class="fa-solid fa-location-dot"></i> {{ currentEvent.address_name }} {{ currentEvent.address_text }},
+                            <div *ngIf="currentEvent.title"><strong>Chapeau: </strong>{{ currentEvent.title }} - {{ currentEvent.title_event }} </div>
+                            <div *ngIf="currentEvent.updated_at"> <strong>Date de mise à jour :  </strong>{{ currentEvent.updated_at | date: 'yyyy-MM-dd, h:mm:ss a z' }} </div>
+                            <div *ngIf="currentEvent.tags"><strong>Mots clés: </strong>{{ currentEvent.tags }} </div><br>
+                            <div *ngIf="currentEvent.lead_text"><strong>{{ currentEvent.lead_text }}</strong> </div><br>
+                            <div *ngIf="currentEvent.description"><strong>Description: </strong>{{ currentEvent.description }} </div><br>
+                            <div *ngIf="currentEvent.address_name"><i class="fa-solid fa-location-dot fa-2xl"></i> {{ currentEvent.address_name }} {{ currentEvent.address_text }},
                                 {{ currentEvent.address_street }}, {{ currentEvent.address_zipcode }} {{ currentEvent.address_city }} 
+                                <br>
                             </div>
-                            <div *ngIf="currentEvent.date_description">{{ currentEvent.date_description }} </div>
+                            <div *ngIf="currentEvent.date_start"><strong>Date de debut : </strong>{{ currentEvent.date_start | date: 'yyyy-MM-dd, h:mm:ss a z' }} </div>
+                            <div *ngIf="currentEvent.date_end"><strong>Date de fin : </strong>{{ currentEvent.date_end | date: 'yyyy-MM-dd, h:mm:ss a z' }} </div>
+                            <div *ngIf="currentEvent.date_description"><strong>Se déroule : </strong>{{ currentEvent.date_description }} </div>
                             <div class="input-group mb-3">
-                                <div *ngIf="currentEvent.pmr != 0"><i class="fa-solid fa-wheelchair"></i>  &nbsp;</div>
-                                <div *ngIf="currentEvent.blind != 0"><i class="fa-solid fa-person-walking-with-cane"></i> &nbsp;</div>
-                                <div *ngIf="currentEvent.deaf != 0"><i class="fa-solid fa-ear-deaf"></i></div>
+                                <div *ngIf="currentEvent.pmr != 0"><i class="fa-solid fa-wheelchair fa-2xl"></i>  &nbsp;</div>
+                                <div *ngIf="currentEvent.blind != 0"><i class="fa-solid fa-person-walking-with-cane fa-2xl"></i> &nbsp;</div>
+                                <div *ngIf="currentEvent.deaf != 0"><i class="fa-solid fa-ear-deaf fa-2xl"></i></div>
                             </div>
-                            <div *ngIf="currentEvent.transport"><i class="fa-solid fa-train-subway"></i> {{ currentEvent.transport }} </div>
+                            <div *ngIf="currentEvent.transport"><i class="fa-solid fa-train-subway fa-2xl"></i> {{ currentEvent.transport }} <br></div>
                             <div class="input-group mb-3">
-                                <div *ngIf="currentEvent.contact_mail"><i class="fa-solid fa-at"></i> {{ currentEvent.contact_mail}}  &nbsp; &nbsp;</div>
-                                <div *ngIf="currentEvent.contact_phone"><i class="fa-solid fa-phone"></i> {{ currentEvent.contact_phone}}  &nbsp; &nbsp;</div>
-                                <div *ngIf="currentEvent.contact_facebook"><a href="{{ currentEvent.contact_facebook}} " target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-facebook"></i></a>  &nbsp; &nbsp;</div>
-                                <div *ngIf="currentEvent.contact_twitter"><a href="{{ currentEvent.contact_twitter}} " target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-twitter"></i></a>  &nbsp; &nbsp;</div>
-                                <div *ngIf="currentEvent.contact_url"><a href="{{ currentEvent.contact_url}} " target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-browser"></i></a></div>
-                            </div>
-                            <div *ngIf="currentEvent.access_type">Réservation: {{ currentEvent.access_type }} </div>
+                                <div *ngIf="currentEvent.contact_mail"><i class="fa-solid fa-at fa-2xl"></i> {{ currentEvent.contact_mail}}  &nbsp; &nbsp;</div>
+                                <div *ngIf="currentEvent.contact_phone"><i class="fa-solid fa-phone fa-2xl"></i> {{ currentEvent.contact_phone}}  &nbsp; &nbsp;</div>
+                                <div *ngIf="currentEvent.contact_facebook"><a href="{{ currentEvent.contact_facebook}} " target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-facebook fa-2xl"></i></a>  &nbsp; &nbsp;</div>
+                                <div *ngIf="currentEvent.contact_twitter"><a href="{{ currentEvent.contact_twitter}} " target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-twitter fa-2xl"></i></a>  &nbsp; &nbsp;</div>
+                                <div *ngIf="currentEvent.contact_url"><a href="{{ currentEvent.contact_url}} " target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-browser fa-2xl"></i></a></div>
+                            </div><br>
+                            <div *ngIf="currentEvent.access_type"><strong>Réservation: </strong>{{ currentEvent.access_type }} </div>
                             <div *ngIf="currentEvent.access_link_text">{{ currentEvent.access_link_text }} </div>
                             <div *ngIf="currentEvent.price_type">{{ currentEvent.price_type }}, {{ currentEvent.price_detail }} </div>
                             <div *ngIf="currentEvent.access_link"><a href="{{ currentEvent.access_link }} " target="_blank" rel="noopener noreferrer" class="btn btn-primary">Pour reserver</a></div>

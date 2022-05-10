@@ -1,6 +1,34 @@
 <div class="container">
-    <header class="jumbotron">
-      <p>{{ content }}</p>
-    </header>
-  </div>
+  <div class = "row">
+		<h1> Liste des utilisateurs inscrits</h1>
+	</div>
+
+  <table class = "table table-striped table-hover">
+		<thead>
+			<tr>
+				<th>Nom d'utilisateur</th>
+				<th>Adresse Email</th>
+				
+        <th>Role</th>
+				<th>Actions</th>
+			</tr>
+		</thead>
+		
+		<tbody>
+			<tr *ngFor="let user of users; let i = index"
+      [class.active]="i == currentIndex"
+      (click)="setActiveUser(user, i)"
+      >
+				<td>{{user.username}}</td>
+				<td>{{user.email}}</td>
+        
+        <td *ngFor="let role of user.roles">
+          <p>{{role.name}}</p></td>
+				<td>
+					<button class = "btn btn-danger" style="margin-left: 10px" (click)="deleteUser()">Supprimer</button>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
   

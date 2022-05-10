@@ -15,9 +15,11 @@ import { HttpClientModule } from '@angular/common/http';
 import { authInterceptorProviders } from './_helpers/auth.interceptor';
 import { EventsDetailsComponent } from './events-details/events-details.component';
 import { LocalisationsComponent } from './components/localisations/localisations.component';
-import { AccessibiliteComponent } from './components/accessibilite/accessibilite.component';
 import { AnalysesComponent } from './components/analyses/analyses.component';
 import { FooterComponent } from './components/footer/footer.component';
+import { AccessibiliteComponent } from './components/accessibilite/accessibilite.component';
+import { SafePipe } from './shared/safe.pipe';
+import { DatePipe } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -33,7 +35,8 @@ import { FooterComponent } from './components/footer/footer.component';
     LocalisationsComponent,
     AccessibiliteComponent,
     AnalysesComponent,
-    FooterComponent
+    FooterComponent,
+    SafePipe
   ],
   imports: [
     BrowserModule,
@@ -41,7 +44,7 @@ import { FooterComponent } from './components/footer/footer.component';
     FormsModule,
     HttpClientModule
   ],
-  providers: [authInterceptorProviders],
+  providers: [authInterceptorProviders, DatePipe],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
