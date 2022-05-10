@@ -47,4 +47,8 @@ export class AuthService {
   deleteAll(): Observable<any> {
     return this.http.delete(AUTH_API + 'users');
   }
+
+  update(id: any, data: any): Observable<any> {
+    return this.http.put(`${AUTH_API + 'users'}/${id}`, data);
+  }
 }

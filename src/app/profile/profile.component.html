@@ -4,11 +4,13 @@
         <strong>{{ currentUser.username }}</strong> Profile
       </h3>
     </header>
+    <!--
     <p>
       <strong>Token:</strong>
       {{ currentUser.accessToken.substring(0, 20) }} ...
       {{ currentUser.accessToken.substr(currentUser.accessToken.length - 20) }}
     </p>
+    -->
     <p>
       <strong>Email:</strong>
       {{ currentUser.email }}
@@ -19,6 +21,59 @@
         {{ role }}
       </li>
     </ul>
+    
+    <!-- Button trigger modal 
+    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Modifier</button>
+      --><!-- Modal 
+<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="staticBackdropLabel">Faites vos modifications</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="form-group">
+            <label for="username">Username</label>
+            <input
+              type="text"
+              class="form-control"
+              id="username"
+              [(ngModel)]="currentUser.username"
+              name="username"
+            />
+          </div>
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input
+              type="email"
+              class="form-control"
+              id="email"
+              [(ngModel)]="currentUser.email"
+              name="email"
+            />
+          </div>
+          <div class="form-group">
+            <label for="password">Password</label>
+            <input
+              type="password"
+              class="form-control"
+              id="password"
+              name="password"
+              [(ngModel)]="currentUser.password"
+            />
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="submit" class="btn btn-success" (click)="updateUser()">Mettre a jour</button>
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
+      </div>
+    </div>
+  </div>
+</div> 
+-->
   </div>
   
   <ng-template #loggedOut>

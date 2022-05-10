@@ -14,6 +14,7 @@ export class BoardAdminComponent implements OnInit {
   users?: User[];
   currentUser: User = {};
   currentIndex = -1;
+  message = '';
 
   constructor(private userService: UserService, 
     private  authService: AuthService,
@@ -88,5 +89,17 @@ export class BoardAdminComponent implements OnInit {
       },
       error: (e) => console.error(e)
     });
+  }
+
+  updateUser(): void {
+    this.message = '';
+    this.authService.update(this.currentUser.id, this.currentUser)
+      .subscribe({
+        next: (res) => {
+          console.log(res);
+          this.message = res.message ? res.message : 'This user was updated successfully!';
+        },
+        error: (e) => console.error(e)
+      });
   }
 }
