@@ -14,7 +14,7 @@
     position: relative;
     height: 100vh;
     width: 100%;
-    background: linear-gradient(rgba(0, 0, 0, .5), rgba(0, 0, 0, .1)), url('/assets/img/island.jpg');
+    background: linear-gradient(rgba(0, 0, 0, .5), rgba(0, 0, 0, .1)), url('island.jpg');
     background-size: cover;
     background-position: center;
     padding: 0 8%;
@@ -26,7 +26,7 @@
     margin-left: -10px;
     color: transparent;
     -webkit-text-stroke: 1px aliceblue;
-    background: url('/assets/img/pattern.png');
+    background: url('pattern.png');
     background-clip: text;
     background-position: 0 0;
     animation: animate 20s linear 2s infinite alternate;
