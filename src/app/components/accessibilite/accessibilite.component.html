@@ -25,21 +25,21 @@
         </div>
     </div>
 
-   
+    <!--
         <div class="row"
             *ngFor="let scrapping of scrappings; let i = index"
             [class.active]="i == currentIndex" 
             (click)="setActiveScrapping(scrapping, i)"
         >
             <div class="col">
-                <!--  
+                
                 {{scrapping.pmr_access_link}}
                 <iframe [src]="'{{scrapping.pmr_access_link}}' | safe" width="350" height="250" frameborder="0"></iframe><br>
-              -->
+              
                <a href="{{scrapping.pmr_access_link}}" target="_blank" rel="noopener noreferrer">Accès PMR</a> <br>
                <a href="{{scrapping.deaf_access_link}}" target="_blank" rel="noopener noreferrer">Accès malentendant</a><br>
                <a href="{{scrapping.blind_access_link}}" target="_blank" rel="noopener noreferrer">Accès malvoyant</a>
             </div>
         </div>
-    
+    -->
 </div>

@@ -3,18 +3,19 @@
     <div>
 	    <iframe src="https://opendata.paris.fr/explore/embed/dataset/que-faire-a-paris-/map/?disjunctive.tags&disjunctive.address_name&disjunctive.address_zipcode&disjunctive.address_city&disjunctive.pmr&disjunctive.blind&disjunctive.deaf&disjunctive.transport&disjunctive.price_type&disjunctive.access_type&disjunctive.programs&basemap=jawg.dark&location=3,27.13737,1.40625&static=false&datasetcard=false&scrollWheelZoom=false" width="800" height="600" frameborder="0"></iframe>
     </div>
-
+<!-- 
     <div class="row"
             *ngFor="let scrapping of scrappings; let i = index"
             [class.active]="i == currentIndex" 
             (click)="setActiveScrapping(scrapping, i)"
         >
             <div class="col">
-                <!-- 
+                
                 <iframe [src]="'{{scrapping.localisation_link}}' | safe" width="350" height="250" frameborder="0"></iframe><br>
-               -->
+               
                <a href="{{scrapping.localisation_link}}" target="_blank" rel="noopener noreferrer">Localisation des évènements</a> <br>
             </div>
-        </div>
+    </div>
+-->
 </div>
 
