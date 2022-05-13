@@ -20,6 +20,7 @@ import { FooterComponent } from './components/footer/footer.component';
 import { AccessibiliteComponent } from './components/accessibilite/accessibilite.component';
 import { SafePipe } from './shared/safe.pipe';
 import { DatePipe } from '@angular/common';
+import { EscapeHtmlPipe } from './shared/keephtml.pipe';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import { DatePipe } from '@angular/common';
     AccessibiliteComponent,
     AnalysesComponent,
     FooterComponent,
-    SafePipe
+    SafePipe,
+    EscapeHtmlPipe
   ],
   imports: [
     BrowserModule,

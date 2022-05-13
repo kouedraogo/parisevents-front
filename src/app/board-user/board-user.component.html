@@ -53,14 +53,14 @@
                             <div *ngIf="currentEvent.updated_at"> <strong>Date de mise à jour :  </strong>{{ currentEvent.updated_at | date: 'yyyy-MM-dd, h:mm:ss a z' }} </div>
                             <div *ngIf="currentEvent.tags"><strong>Mots clés: </strong>{{ currentEvent.tags }} </div><br>
                             <div *ngIf="currentEvent.lead_text"><strong>{{ currentEvent.lead_text }}</strong> </div><br>
-                            <div *ngIf="currentEvent.description"><strong>Description: </strong><span [innerHTML]="currentEvent.description"></span> </div><br>
+                            <div *ngIf="currentEvent.description"><strong>Description: </strong><span [innerHTML]="currentEvent.description | keepHtml"></span> </div><br>
                             <div *ngIf="currentEvent.address_name"><i class="fa-solid fa-location-dot fa-2xl"></i> {{ currentEvent.address_name }} {{ currentEvent.address_text }},
                                 {{ currentEvent.address_street }}, {{ currentEvent.address_zipcode }} {{ currentEvent.address_city }} 
                                 <br>
                             </div>
                             <div *ngIf="currentEvent.date_start"><strong>Date de debut : </strong>{{ currentEvent.date_start | date: 'yyyy-MM-dd, h:mm:ss a z' }} </div>
                             <div *ngIf="currentEvent.date_end"><strong>Date de fin : </strong>{{ currentEvent.date_end | date: 'yyyy-MM-dd, h:mm:ss a z' }} </div>
-                            <div *ngIf="currentEvent.date_description"><strong>Se déroule : </strong><span [innerHTML]="currentEvent.date_description"></span></div>
+                            <div *ngIf="currentEvent.date_description"><strong>Se déroule : </strong><span [innerHTML]="currentEvent.date_description  | keepHtml"></span></div>
                             <div class="input-group mb-3">
                                 <div *ngIf="currentEvent.pmr != 0"><i class="fa-solid fa-wheelchair fa-2xl"></i>  &nbsp;</div>
                                 <div *ngIf="currentEvent.blind != 0"><i class="fa-solid fa-person-walking-with-cane fa-2xl"></i> &nbsp;</div>
